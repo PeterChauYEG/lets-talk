@@ -57,11 +57,28 @@ window.addEventListener('keydown', (e) => {
       direction = 'rotate right'
       break
     case " ":
+      direction = 'stop'
+      break
+    case "ArrowUp":
+      direction = 'camera up'
+      break
+    case "ArrowLeft":
+      direction = 'camera left'
+      break
+    case "ArrowDown":
+      direction = 'camera down'
+      break
+    case "ArrowRight":
+      direction = 'camera right'
+      break
     default:
-      direction = 'stop';
+      break
   }
 
+  console.log(direction)
+  
   gpio(direction);
+  return;
 })
 
 function gpio(req) {
