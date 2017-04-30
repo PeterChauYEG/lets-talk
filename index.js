@@ -78,10 +78,10 @@ board.on('ready', function() {
   const panAndTilt = {
 
     // pan servo
-    pan: new five.Servo(2),
+    pan: new five.Servo(23),
 
     // tilt servo
-    tilt: new five.Servo(3),
+    tilt: new five.Servo(1),
 
   };
 
@@ -147,11 +147,9 @@ board.on('ready', function() {
 
     // handle gpio
     socket.on('gpio', function(req) {
-      let request;
+      let request = req;
 
       switch (req) {
-        request = req;
-
         case 'forward':
           setDrivetrain(drivetrain, 1, 1);
           break;
