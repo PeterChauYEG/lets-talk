@@ -5,6 +5,7 @@ import raspi from 'raspi-io';
 
 // import hardware interfaces
 import { setDrivetrain } from './drivers/drv8833';
+import { setPanAndTilt } from './drivers/panAndTilt';
 // import { setLED } from './drivers/LED';
 
 // import camera process interface
@@ -153,12 +154,16 @@ board.on('ready', function() {
           setDrivetrain(drivetrain, 1, -1);
           break;
         case 'camera up':
+          setPanAndTilt('camera up');
           break;
         case 'camera left':
+          setPanAndTilt('camera left');
           break;
         case 'camera down':
+          setPanAndTilt('camera down');
           break;
         case 'camera right':
+          setPanAndTilt('camera right');
           break;
         case 'stop':
         default:
@@ -166,7 +171,7 @@ board.on('ready', function() {
       }
 
       console.log('GPIO request: ' + request);
-      
+
       return;
     });
   });
