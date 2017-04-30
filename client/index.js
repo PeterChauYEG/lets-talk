@@ -45,38 +45,38 @@ window.addEventListener('keydown', (e) => {
 
   switch(e.key) {
     case "w":
-      direction = 'forward'
-      break
+      direction = 'forward';
+      break;
     case "a":
-      direction = 'rotate left'
-      break
+      direction = 'rotate left';
+      break;
     case "s":
-      direction = 'backwards'
-      break
+      direction = 'backwards';
+      break;
     case "d":
-      direction = 'rotate right'
-      break
-    case " ":
-      direction = 'stop'
-      break
+      direction = 'rotate right';
+      break;
     case "ArrowUp":
-      direction = 'camera up'
-      break
+      direction = 'camera up';
+      break;
     case "ArrowLeft":
-      direction = 'camera left'
-      break
+      direction = 'camera left';
+      break;
     case "ArrowDown":
-      direction = 'camera down'
-      break
+      direction = 'camera down';
+      break;
     case "ArrowRight":
-      direction = 'camera right'
-      break
+      direction = 'camera right';
+      break;
+    case " ":
+      direction = 'stop';
+      break;
     default:
-      break
+      break;
   }
 
-  console.log(direction)
-  
+  console.log(direction);
+
   gpio(direction);
   return;
 })

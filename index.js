@@ -97,18 +97,18 @@ board.on('ready', function() {
   setDrivetrain(drivetrain, 0, 0);
 
   io.emit('log message', 'board ready');
-  console.log('board ready');
+  console.log('System ready');
 
   // client connection
   io.on('connection', function(socket) {
 
     // log total clients connected
     sockets[socket.id] = socket;
-    console.log("Total clients connected : " + Object.keys(sockets).length);
+    console.log("Total clients connected: " + Object.keys(sockets).length);
 
     // log user connections
     io.emit('log message', 'a user has connected');
-    console.log('a user connected');
+    console.log('A user has connected');
 
     // client disconnection
     socket.on('disconnect', function() {
@@ -118,7 +118,7 @@ board.on('ready', function() {
       stopStreaming(io);
 
       io.emit('log message', 'a user has disconnected');
-      console.log('user disconnected');
+      console.log('A user has disconnected');
     });
 
     // to start a stream
@@ -130,38 +130,44 @@ board.on('ready', function() {
     // log message to client
     socket.on('log message', function(msg) {
       io.emit('log message', msg);
-      console.log('message: ' + msg);
+      console.log('Log message: ' + msg);
     });
 
     // handle gpio
     socket.on('gpio', function(req) {
+      let request;
+
       switch (req) {
+        request = req;
 
         case 'forward':
           setDrivetrain(drivetrain, 1, 1);
-          console.log('message: ' + req);
           break;
-
         case 'rotate right':
           setDrivetrain(drivetrain, -1, 1);
-          console.log('message: ' + req);
           break;
-
         case 'backwards':
           setDrivetrain(drivetrain, -1, -1);
-          console.log('message: ' + req);
           break;
-
         case 'rotate left':
           setDrivetrain(drivetrain, 1, -1);
-          console.log('message: ' + req);
           break;
-
+        case 'camera up':
+          break;
+        case 'camera left':
+          break;
+        case 'camera down':
+          break;
+        case 'camera right':
+          break;
         case 'stop':
         default:
           setDrivetrain(drivetrain, 0, 0);
-          console.log('message: ' + req);
       }
+
+      console.log('GPIO request: ' + request);
+      
+      return;
     });
   });
 });
