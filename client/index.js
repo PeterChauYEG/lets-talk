@@ -38,7 +38,7 @@ window.wsavc = wsavc;
 
 // --------------------------------------
 // W A S D controls
-
+// Camera pan and tilt controls
 // bind key down event listener to window
 window.addEventListener('keydown', (e) => {
   let direction;

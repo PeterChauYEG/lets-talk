@@ -75,15 +75,19 @@ board.on('ready', function() {
   };
 
   // Mini Pan-Tilt Kit configuration
-  const panAndTilt = {
+  // pan servo
+  const pan = new five.Servo({
+    pin: 23,
+    startAt: 10,
+  });
 
-    // pan servo
-    pan: new five.Servo(23),
+  // tilt servo
+  const tilt = new five.Servo({
+    pin: 1,
+    center: true,
+  });
 
-    // tilt servo
-    tilt: new five.Servo(1),
-
-  };
+  const panAndTilt = new five.Servos([pan, tilt]);
 
   // Software state LED configuration
   // const LED = {
