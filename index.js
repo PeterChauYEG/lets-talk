@@ -74,6 +74,17 @@ board.on('ready', function() {
   	})
   };
 
+  // Mini Pan-Tilt Kit configuration
+  const panAndTilt = {
+
+    // pan servo
+    pan: new five.Servo(2),
+
+    // tilt servo
+    tilt: new five.Servo(3),
+
+  };
+
   // Software state LED configuration
   // const LED = {
   // 	red: new SoftPWM({
@@ -154,16 +165,16 @@ board.on('ready', function() {
           setDrivetrain(drivetrain, 1, -1);
           break;
         case 'camera up':
-          setPanAndTilt('camera up');
+          setPanAndTilt('up');
           break;
         case 'camera left':
-          setPanAndTilt('camera left');
+          setPanAndTilt('left');
           break;
         case 'camera down':
-          setPanAndTilt('camera down');
+          setPanAndTilt('down');
           break;
         case 'camera right':
-          setPanAndTilt('camera right');
+          setPanAndTilt('right');
           break;
         case 'stop':
         default:
